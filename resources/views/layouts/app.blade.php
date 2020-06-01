@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+		@stack('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -39,13 +40,13 @@
 					@else
 					<div class="ml-3 relative">
 						<div>
-							<button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
-							{{ Auth::user()->name }} <img class="h-8 w-8 rounded-full" src="" alt="" />
+							<button class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
+								<span class="m-2">{{ Auth::user()->name }}</span>
+								<img class="bg-gray-200 border h-8 w-8 rounded-full" src="" alt="" />
 							</button>
 						</div>
 						<div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
 							<div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-								<a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Settings</a>
 								<a href="{{ route('logout') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
 									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
