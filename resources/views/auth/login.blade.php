@@ -14,28 +14,36 @@
 				</h2>
 			</div>
 			<form class="mt-8" action="{{ route('login') }}" method="POST">
+				@csrf
+				@error('email')
+				<div class="border-l-2 border-red-500 font-semibold m-2 px-2 text-red-500 text-xs" role="alert">{{ $message }}</div>
+				@enderror
+				@error('password')
+				<div class="border-l-2 border-red-500 font-semibold m-2 px-2 text-red-500 text-xs" role="alert">{{ $message }}</div>
+				@enderror
 				<div class="rounded-md shadow-sm">
 					<div>
-						<input aria-label="{{ __('E-Mail Address') }}" name="email" type="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5" placeholder="{{ __('E-Mail Address') }}" />
+						<input aria-label="{{ __('E-Mail Address') }}" name="email" type="email" value="{{ old('email') }}" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5 @error('email') bg-red-300 text-red-600 @enderror" placeholder="{{ __('E-Mail Address') }}" />
 					</div>
 					<div class="-mt-px">
-						<input aria-label="{{ __('Password') }}" name="password" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5" placeholder="{{ __('Password') }}" />
+						<input aria-label="{{ __('Password') }}" name="password" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5 @error('password') bg-red-300 text-red-600 @enderror" placeholder="{{ __('Password') }}" />
 					</div>
 				</div>
 
 				<div class="mt-6 flex items-center justify-between">
 					<div class="flex items-center">
-						<input id="remember_me" type="checkbox" name="remember"  class="form-checkbox h-4 w-4 text-gray-600 transition duration-150 ease-in-out" />
+						<input id="remember_me" type="checkbox" name="remember"  class="form-checkbox h-4 w-4 text-gray-600 transition duration-150 ease-in-out" {{ old('remember') ? 'checked' : '' }}/>
 						<label for="remember_me" class="ml-2 block text-sm leading-5 text-gray-900">
 						{{ __('Remember Me') }}
 						</label>
 					</div>
-
+					@if (Route::has('password.request'))
 					<div class="text-sm leading-5">
 						<a href="#" class="font-medium text-gray-600 hover:text-gray-500 focus:outline-none focus:underline transition ease-in-out duration-150">
 						{{ __('Forgot your password?') }}
 						</a>
 					</div>
+					@endif
 				</div>
 
 				<div class="mt-6">

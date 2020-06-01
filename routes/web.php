@@ -20,3 +20,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::patch('/profile', 'HomeController@updateProfile')->name('update_profile');
