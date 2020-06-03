@@ -66,7 +66,7 @@
 				<div class="flex-1 font-semibold text-gray-800 text-xs">Cover</div>
 				<div class="flex-1">
 					<label class="bg-gray-100 border border-dashed cursor-pointer flex relative rounded-md @error('cover') border-red-500 @enderror" for="cover_input">
-						<div id="cover" class="bg-center bg-contain bg-no-repeat flex-1 h-0 rounded-md z-10" style="background-image:url({{ asset('covers/' . Auth::id() . '.jpeg') }});padding-bottom:50%;"></div>
+						<div id="cover" class="bg-center bg-cover bg-no-repeat flex-1 h-0 rounded-md z-10" style="background-image:url({{ asset('covers/' . Auth::id() . '.jpeg') }});padding-bottom:50%;"></div>
 						<div class="absolute flex inset-0 items-center justify-center z-0">
 							<span class="text-gray-700 text-xs">+ Upload Image</span>
 						</div>

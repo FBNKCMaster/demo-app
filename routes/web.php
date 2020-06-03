@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
-});
-
-Auth::routes();
+})->name('welcome');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::patch('/profile', 'HomeController@updateProfile')->name('update_profile');
