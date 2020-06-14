@@ -42,7 +42,7 @@
 						<div>
 							<button @click.prevent="open = true" class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
 								<span class="m-2 text-xs">{{ Auth::user()->name }}</span>
-								<img class="bg-gray-200 border h-8 w-8 rounded-full" src="{{ asset('profiles/' . Auth::id() . '.jpeg') }}" alt="" />
+								<div class="bg-center bg-cover bg-no-repeat bg-gray-200 border h-8 w-8 rounded-full" style="background-image: url({{ asset('profiles/' . Auth::id() . '.jpeg') }})"></div>
 							</button>
 						</div>
 						<div x-show="open"
