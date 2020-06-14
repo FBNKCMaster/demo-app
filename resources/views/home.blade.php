@@ -20,7 +20,7 @@
 @endpush
 
 @section('content')
-<div class="container">
+<div class="container mx-auto">
 	<div class="flex items-center justify-center">
 		<form class="border p-4 rounded shadow w-1/2" action="{{ route('update_profile') }}" method="post" enctype="multipart/form-data">
 			@csrf
@@ -56,7 +56,7 @@
 				<div class="flex-1 font-semibold text-gray-800 text-xs">Photo</div>
 				<div class="flex-1">
 					<div class="flex items-center">
-						<div id="profile" class="bg-center bg-contain bg-no-repeat bg-gray-100 border h-12 rounded-full w-12 @error('profile') border-red-500 @enderror" style="background-image:url({{ asset('profiles/' . Auth::id() . '.jpeg') }});"></div>
+						<div id="profile" class="bg-center bg-cover bg-no-repeat bg-gray-100 border h-12 rounded-full w-12 @error('profile') border-red-500 @enderror" style="background-image:url({{ asset('profiles/' . Auth::id() . '.jpeg') }});"></div>
 						<label class="border cursor-pointer mx-2 p-1 px-2 rounded-md shadow text-xs" for="profile_input">Change</label>
 						<input id="profile_input" class="hidden" type="file" name="profile" accept="image/*">
 					</div>
