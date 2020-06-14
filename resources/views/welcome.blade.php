@@ -13,9 +13,11 @@
 				</h1>
 			</div>
 			<div class="flex justify-center m-2">
+			@if (isset($tenants))
 				@foreach($tenants as $tenant)
 				<a href="{{ '//' . $tenant->subdomain . '.' . config()->get('xtenant.domain') }}" class="mx-1 p-1 text-center text-gray-700">{{ $tenant->name }}</a>
 				@endforeach
+			@endif
 			</div>
 		</div>
 	</div>
