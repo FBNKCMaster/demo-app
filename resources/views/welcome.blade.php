@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mx-auto">
 	<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-md w-full">
 			<div>
@@ -13,7 +13,7 @@
 				</h1>
 			</div>
 			<div class="flex justify-center m-2">
-				@foreach(session('tenants', []) as $tenant)
+				@foreach($tenants as $tenant)
 				<a href="{{ '//' . $tenant->subdomain . '.' . config()->get('xtenant.domain') }}" class="mx-1 p-1 text-center text-gray-700">{{ $tenant->name }}</a>
 				@endforeach
 			</div>

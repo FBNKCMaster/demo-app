@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
 		@stack('scripts')
 
     <!-- Fonts -->
@@ -23,7 +23,7 @@
 <body>
 	<div id="app">
 		<nav class="flex border-b">
-			<div class="container flex flex-1 items-center justify-center mx-2">
+			<div class="container flex flex-1 items-center justify-center mx-auto px-2">
 				<div class="leading-none py-1">
 					<a href="/" class="bg-gray-900 border border-gray-700 flex font-bold p-1 px-2 rounded text-2xl">
 						<span class="text-red-500">x</span><span class="text-gray-200">Tenant</span>
@@ -31,26 +31,32 @@
 				</div>
 				<div class="flex-1">
 				</div>
-				<div class="flex items-center text-sm">
+				<div class="flex items-center rounded px-1 text-sm">
 				@guest
 					<a href="{{ route('login') }}" class="border p-1 px-2 rounded text-gray-700">{{ __('Login') }}</a>
 					@if (Route::has('register'))
 					<a href="{{ route('register') }}" class="bg-gray-700 border-gray-600 ml-1 p-1 px-2 rounded text-white">{{ __('Register') }}</a>
 					@endif
 				@else
-					<div class="ml-3 relative">
+					<div @click.away="open = false" x-data="{ open: false }" class="ml-3 relative">
 						<div>
-							<button class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
+							<button @click.prevent="open = true" class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
 								<span class="m-2 text-xs">{{ Auth::user()->name }}</span>
 								<img class="bg-gray-200 border h-8 w-8 rounded-full" src="{{ asset('profiles/' . Auth::id() . '.jpeg') }}" alt="" />
 							</button>
 						</div>
-						<div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
-							<div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-								<a href="/home" class="block px-4 py-2 text-sm leading-5 text-gray-700 uppercase hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+						<div x-show="open"
+									x-transition:enter="transition ease-out duration-300"
+									x-transition:enter-start="opacity-0 transform scale-90"
+									x-transition:enter-end="opacity-100 transform scale-100"
+									x-transition:leave="transition ease-in duration-300"
+									x-transition:leave-start="opacity-100 transform scale-100"
+									x-transition:leave-end="opacity-0 transform scale-90" class="origin-top-right absolute right-0 mt-1 w-48 rounded-b shadow-lg text-xs">
+							<div class="py-1 rounded-b bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+								<a href="/home" class="block px-4 py-1 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
 								{{ __('Home') }}
 								</a>
-								<a href="{{ route('logout') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+								<a href="{{ route('logout') }}" class="border-t block px-4 py-1 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
 									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
 								</a>
