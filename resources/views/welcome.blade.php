@@ -12,10 +12,10 @@
 					<span class="font-normal mx-2 text-gray-700">Demo App</span>
 				</h1>
 			</div>
-			<div class="flex justify-center m-2">
+			<div class="border-t flex justify-center mt-4">
 			@if (isset($tenants))
 				@foreach($tenants as $tenant)
-				<a href="{{ '//' . $tenant->subdomain . '.' . config()->get('xtenant.domain') }}" class="mx-1 p-1 text-center text-gray-700">{{ $tenant->name }}</a>
+				<a href="{{ '//' . $tenant->subdomain . '.' . config()->get('xtenant.domain') }}" class="bg-gray-200 m-1 px-2 rounded text-center text-gray-700 hover:bg-gray-300">{{ $tenant->name }}</a>
 				@endforeach
 			@endif
 			</div>
