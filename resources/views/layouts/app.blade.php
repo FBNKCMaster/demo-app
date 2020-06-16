@@ -46,12 +46,12 @@
 							</button>
 						</div>
 						<div x-show="open"
-									x-transition:enter="transition ease-out duration-300"
-									x-transition:enter-start="opacity-0 transform scale-90"
-									x-transition:enter-end="opacity-100 transform scale-100"
-									x-transition:leave="transition ease-in duration-300"
-									x-transition:leave-start="opacity-100 transform scale-100"
-									x-transition:leave-end="opacity-0 transform scale-90" class="origin-top-right absolute right-0 mt-1 w-48 rounded-b shadow-lg text-xs">
+								x-transition:enter="transition ease-out duration-300"
+								x-transition:enter-start="opacity-0 transform scale-90"
+								x-transition:enter-end="opacity-100 transform scale-100"
+								x-transition:leave="transition ease-in duration-300"
+								x-transition:leave-start="opacity-100 transform scale-100"
+								x-transition:leave-end="opacity-0 transform scale-90" class="origin-top-right absolute right-0 mt-2 w-48 rounded-b shadow-lg text-xs z-50">
 							<div class="py-1 rounded-b bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
 								<a href="/home" class="block px-4 py-1 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
 								{{ __('Home') }}
