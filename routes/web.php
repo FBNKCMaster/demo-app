@@ -19,5 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::patch('/profile', 'HomeController@updateProfile')->name('update_profile');

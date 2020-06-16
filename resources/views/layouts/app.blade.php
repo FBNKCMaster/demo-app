@@ -24,10 +24,11 @@
 	<div id="app">
 		<nav class="flex border-b">
 			<div class="container flex flex-1 items-center justify-center mx-auto px-2">
-				<div class="leading-none py-1">
+				<div class="flex items-center leading-none py-1">
 					<a href="/" class="bg-gray-900 border border-gray-700 flex font-bold p-1 px-2 rounded text-2xl">
 						<span class="text-red-500">x</span><span class="text-gray-200">Tenant</span>
 					</a>
+					<span class="font-normal mx-2 text-gray-700">Demo App</span>
 				</div>
 				<div class="flex-1">
 				</div>
@@ -55,6 +56,9 @@
 							<div class="py-1 rounded-b bg-white shadow-xs">
 								<a href="/home" class="block px-4 py-1 text-gray-700 transition duration-150 ease-in-out focus:outline-none focus:bg-gray-100 hover:bg-gray-100">
 								{{ __('Home') }}
+								</a>
+								<a href="/about" class="block px-4 py-1 text-gray-700 transition duration-150 ease-in-out focus:outline-none focus:bg-gray-100 hover:bg-gray-100">
+								{{ __('About') }}
 								</a>
 								<a href="{{ route('logout') }}" class="border-t block px-4 py-1 text-gray-700 transition duration-150 ease-in-out focus:outline-none focus:bg-gray-100 hover:bg-gray-100" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
