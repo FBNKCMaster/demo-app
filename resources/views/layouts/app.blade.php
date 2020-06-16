@@ -51,12 +51,12 @@
 								x-transition:enter-end="opacity-100 transform scale-100"
 								x-transition:leave="transition ease-in duration-300"
 								x-transition:leave-start="opacity-100 transform scale-100"
-								x-transition:leave-end="opacity-0 transform scale-90" class="origin-top-right absolute right-0 mt-2 w-48 rounded-b shadow-lg text-xs z-50">
-							<div class="py-1 rounded-b bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-								<a href="/home" class="block px-4 py-1 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+								x-transition:leave-end="opacity-0 transform scale-90" class="absolute mt-1 origin-top-right right-0 rounded-b shadow-lg text-xs w-48 z-50">
+							<div class="py-1 rounded-b bg-white shadow-xs">
+								<a href="/home" class="block px-4 py-1 text-gray-700 transition duration-150 ease-in-out focus:outline-none focus:bg-gray-100 hover:bg-gray-100">
 								{{ __('Home') }}
 								</a>
-								<a href="{{ route('logout') }}" class="border-t block px-4 py-1 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+								<a href="{{ route('logout') }}" class="border-t block px-4 py-1 text-gray-700 transition duration-150 ease-in-out focus:outline-none focus:bg-gray-100 hover:bg-gray-100" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
 									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
 								</a>
