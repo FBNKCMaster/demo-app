@@ -6,7 +6,7 @@ A demo app to test <a href="https://github.com/FBNKCMaster/xTenant">xTenant</a> 
 
 Clone the repository
 
-    git clone git@github.com:FBNKCMaster/demo-app.git
+    git clone https://github.com/FBNKCMaster/demo-app.git
 
 Switch to the repo folder
 
